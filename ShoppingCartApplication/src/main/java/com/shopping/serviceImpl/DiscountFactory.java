@@ -17,18 +17,21 @@ public class DiscountFactory implements Discount {
 
 		if (user instanceof Employee) {
 			Employee e = new Employee();
+			user.setUserType("Employee");
 			double billAmount = getDiscount(user);
 			e.setBillAmount(billAmount);
 			return e;
 		} else if (user instanceof Customer) {
 
 			Customer e = new Customer();
+			user.setUserType("Customer");
 			double billAmount = getDiscount(user);
 			e.setBillAmount(billAmount);
 			return e;
 
 		} else if (user instanceof Affiliate) {
 			Affiliate e = new Affiliate();
+			user.setUserType("Affiliate");
 			double billAmount = getDiscount(user);
 			e.setBillAmount(billAmount);
 
@@ -52,7 +55,7 @@ public class DiscountFactory implements Discount {
 
 				double quotient = (billamount * 30) / 100;
 				billamount = billamount - quotient;
-				System.out.println("Total Bill::" + billamount);
+				System.out.println("Total Bill::" + user.getBillAmount());
 				System.out.println("Employee 30%  Discount Apply" + quotient);
 				System.out.println("After discount::" + billamount);
 			} else {
@@ -81,7 +84,7 @@ public class DiscountFactory implements Discount {
 					System.out.println("Customer 5 %  Discount Apply" + quotient);
 					System.out.println("After discount::" + billamount);
 				}
-
+				billamount = extracted(billamount);
 			} else {
 				billamount = extracted(billamount);
 			}		

@@ -17,8 +17,8 @@ public class MainClassTest {
 		
 		DiscountFactory discountFactory = new DiscountFactory();
 		Customer e = new Customer();
-		e.setBillAmount(100.00);
-		e.setUserType("Customer");
+		e.setBillAmount(1000.00);
+		
 		e.setProductType("Electronics");
 		e.setPurchaseDate(mdy);
 		User u = discountFactory.userType(e);
