@@ -8,9 +8,9 @@ import com.shopping.bo.Affiliate;
 import com.shopping.bo.Customer;
 import com.shopping.bo.Employee;
 import com.shopping.bo.User;
-import com.shopping.service.Discount;
+import com.shopping.service.UserType;
 
-public class DiscountFactory implements Discount {
+public class DiscountFactory implements UserType {
 	SimpleDateFormat obj = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
 	@Override
 	public User userType(User user) {
@@ -18,21 +18,21 @@ public class DiscountFactory implements Discount {
 		if (user instanceof Employee) {
 			Employee e = new Employee();
 			user.setUserType("Employee");
-			double billAmount = getDiscount(user);
+			double billAmount = getDiscountCalculate(user);
 			e.setBillAmount(billAmount);
 			return e;
 		} else if (user instanceof Customer) {
 
 			Customer e = new Customer();
 			user.setUserType("Customer");
-			double billAmount = getDiscount(user);
+			double billAmount = getDiscountCalculate(user);
 			e.setBillAmount(billAmount);
 			return e;
 
 		} else if (user instanceof Affiliate) {
 			Affiliate e = new Affiliate();
 			user.setUserType("Affiliate");
-			double billAmount = getDiscount(user);
+			double billAmount = getDiscountCalculate(user);
 			e.setBillAmount(billAmount);
 
 			return e;
@@ -41,8 +41,8 @@ public class DiscountFactory implements Discount {
 
 	}
 
-	@Override
-	public double getDiscount(User user) {
+	
+	private  double getDiscountCalculate(User user) {
 		
 		double billamount=user.getBillAmount();
 		String PurchaseDate=user.getPurchaseDate();
