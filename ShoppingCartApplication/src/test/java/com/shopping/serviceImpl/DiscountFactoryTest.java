@@ -3,6 +3,7 @@ package com.shopping.serviceImpl;
 
 
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.SimpleDateFormat;
@@ -90,6 +91,25 @@ public class DiscountFactoryTest {
 		
 		
 		assertEquals(900.00, actual);
+		//assertEquals(700.00,actual);
+		
+	}
+	
+	@Test
+	public void testBillamountAffiliate_checkNull_object() {
+		SimpleDateFormat obj = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+		Date date = new Date();
+		String mdy = obj.format(date);
+		
+		
+		Affiliate e = null;
+		e.setBillAmount(1000.00);
+		e.setProductType("Electronics");
+		e.setPurchaseDate(mdy);
+		User u = discountFactory.userType(e);
+		//double actual=u.getBillAmount();
+		assertNull(mdy,e);  
+		
 		//assertEquals(700.00,actual);
 		
 	}

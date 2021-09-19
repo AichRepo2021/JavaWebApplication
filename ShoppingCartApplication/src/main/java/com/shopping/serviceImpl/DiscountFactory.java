@@ -16,24 +16,24 @@ public class DiscountFactory implements UserType {
 	public User userType(User user) {
 
 		if (user instanceof Employee) {
-			Employee e = new Employee();
+			//Employee e = new Employee();
 			user.setUserType("Employee");
 			double billAmount = getDiscountCalculate(user);
-			e.setBillAmount(billAmount);
-			return e;
+			user.setBillAmount(billAmount);
+			return user;
 		} else if (user instanceof Customer) {
-			Customer e = new Customer();
+			//Customer e = new Customer();
 			user.setUserType("Customer");
 			double billAmount = getDiscountCalculate(user);
-			e.setBillAmount(billAmount);
-			return e;
+			user.setBillAmount(billAmount);
+			return user;
 		} else if (user instanceof Affiliate) {
-			Affiliate e = new Affiliate();
+			//Affiliate e = new Affiliate();
 			user.setUserType("Affiliate");
 			double billAmount = getDiscountCalculate(user);
-			e.setBillAmount(billAmount);
+			user.setBillAmount(billAmount);
 
-			return e;
+			return user;
 		}
 		return user;
 
