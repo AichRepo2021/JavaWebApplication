@@ -22,7 +22,6 @@ public class DiscountFactory implements UserType {
 			e.setBillAmount(billAmount);
 			return e;
 		} else if (user instanceof Customer) {
-
 			Customer e = new Customer();
 			user.setUserType("Customer");
 			double billAmount = getDiscountCalculate(user);
