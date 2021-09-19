@@ -27,7 +27,6 @@ public class DiscountFactory implements UserType {
 			double billAmount = getDiscountCalculate(user);
 			e.setBillAmount(billAmount);
 			return e;
-
 		} else if (user instanceof Affiliate) {
 			Affiliate e = new Affiliate();
 			user.setUserType("Affiliate");
